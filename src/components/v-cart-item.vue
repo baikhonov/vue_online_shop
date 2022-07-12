@@ -8,13 +8,18 @@
     </div>
     <div class="v-cart-item__quantity">
       <p>Quantity</p>
-      {{ cart_item_data.quantity }}
+      <span>
+        <span class="v-cart-item__quantity-btn" @click="decrementItem">-</span>
+        {{ cart_item_data.quantity }}
+        <span class="v-cart-item__quantity-btn" @click="incrementItem">+</span>
+      </span>
     </div>
     <button @click="deleteFromCart">Delete</button>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "v-cart-item",
   props: {
@@ -28,30 +33,38 @@ export default {
   data() {
     return {}
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     deleteFromCart() {
       this.$emit('deleteFromCart')
+    },
+    decrementItem() {
+      this.$emit('decrement')
+    },
+    incrementItem() {
+      this.$emit('increment')
     }
   }
 }
 </script>
 
 <style lang="scss">
- .v-cart-item {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.v-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-   padding: $padding*2;
-   margin-bottom: $margin*2;
+  padding: $padding*2;
+  margin-bottom: $margin*2;
 
-   box-shadow: 0 0 8px 0 #e0e0e0;
+  box-shadow: 0 0 8px 0 #e0e0e0;
 
-   &__image {
-     max-width: 50px;
-   }
- }
+  &__image {
+    max-width: 50px;
+  }
+
+  &__quantity-btn {
+    cursor: pointer;
+  }
+}
 </style>
