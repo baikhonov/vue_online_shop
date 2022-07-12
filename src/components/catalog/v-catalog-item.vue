@@ -2,7 +2,7 @@
   <div class="v-catalog-item">
     <article class="v-catalog-item__card">
       <img class="v-catalog-item__image"
-                                                :src="require('../assets/images/' + product_data.image)" alt="img">
+                                                :src="require('@/assets/images/' + product_data.image)" alt="img">
       <p class="v-catalog-item__name">{{ product_data.name }}</p>
       <p class="v-catalog-item__price">Price: {{ product_data.price }} ₽</p>
       <button
