@@ -87,8 +87,8 @@ export default {
 
   &__link-to-catalog {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     padding: $padding*2;
     border: 1px solid #aeaeae;
   }

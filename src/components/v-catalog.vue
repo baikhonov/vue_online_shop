@@ -63,14 +63,15 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   &__link-to-cart {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     padding: $padding*2;
     border: 1px solid #aeaeae;
   }

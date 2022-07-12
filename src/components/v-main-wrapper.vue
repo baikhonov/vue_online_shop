@@ -1,8 +1,10 @@
 <template>
   <div class="v-main-wrapper">
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <div class="container">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
@@ -25,6 +27,10 @@
 </script>
 
 <style>
+  .container {
+    padding: 0 15px;
+  }
+
   .v-main-wrapper {
     max-width: 900px;
     margin: 0 auto;
