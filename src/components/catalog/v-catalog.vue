@@ -176,7 +176,7 @@ export default {
     z-index: 2;
     position: relative;
     top: 2px;
-    margin-top: -7px;
+    margin-top: -4px;
   }
 
 }
