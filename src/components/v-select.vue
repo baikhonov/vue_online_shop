@@ -6,14 +6,14 @@
     >{{ selected }}</p>
     <div
         class="v-select__options"
-        v-if="areOptionsVisible"
+        v-if="areOptionsVisible || isExpanded"
     >
       <p
-        v-for="option in options"
-        :key="option.value"
-        @click="selectOption(option)"
+          v-for="option in options"
+          :key="option.value"
+          @click="selectOption(option)"
       >
-          {{ option.name }}
+        {{ option.name }}
       </p>
     </div>
   </div>
@@ -31,9 +31,11 @@ export default {
     },
     selected: {
       type: String,
-      default() {
-        return ''
-      }
+      default: ''
+    },
+    isExpanded: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -62,40 +64,40 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-select {
-    position: relative;
-    width: 200px;
-    margin-bottom: 20px;
+.v-select {
+  position: relative;
+  width: 200px;
+  margin-bottom: 20px;
 
-    cursor: pointer;
+  cursor: pointer;
+
+  p {
+    padding: 5px;
+    margin: 0;
+  }
+
+  &__title {
+    border: 1px solid #aeaeae;
+
+    user-select: none;
+  }
+
+  &__options {
+
+    background-color: #fff;
+    border: 1px solid #aeaeae;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 100%;
 
     p {
-      padding: 5px;
-      margin: 0;
-    }
 
-    &__title {
-      border: 1px solid #aeaeae;
-
-      user-select: none;
-    }
-
-    &__options {
-
-      background-color: #fff;
-      border: 1px solid #aeaeae;
-      position: absolute;
-      top: 35px;
-      right: 0;
-      width: 100%;
-      
-      p {
-        
-        &:hover {
-          background-color: #e7e7e7;
-        }
+      &:hover {
+        background-color: #e7e7e7;
       }
     }
   }
+}
 
 </style>
