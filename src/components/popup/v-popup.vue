@@ -72,7 +72,6 @@ export default {
    padding: 16px;
 
    background-color: #fff;
-   box-shadow: 0 0 10px 0 #e7e7e7;
 
    &__btn {
      cursor: pointer;
@@ -104,6 +103,12 @@ export default {
      display: flex;
      justify-content: center;
      align-items: center;
+
+     padding: 20px 0;
+
+     img {
+       margin-right: 30px;
+     }
    }
    
    .submit-btn {

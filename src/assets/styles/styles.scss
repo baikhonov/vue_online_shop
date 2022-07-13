@@ -8,6 +8,10 @@ body {
   margin: 0;
 }
 
+a, button {
+  cursor: pointer;
+}
+
 .btn {
   padding: $padding $padding*2;
   color: #FFF;

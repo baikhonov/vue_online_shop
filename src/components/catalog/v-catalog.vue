@@ -17,16 +17,16 @@
         <input
             type="range"
             min="0"
-            max="1000"
-            step="10"
+            max="10000"
+            step="100"
             v-model.number="minPrice"
             @change="setRangeSlider"
         >
         <input
             type="range"
             min="0"
-            max="1000"
-            step="10"
+            max="10000"
+            step="100"
             v-model.number="maxPrice"
             @change="setRangeSlider"
         >
@@ -70,7 +70,7 @@ export default {
       selected: 'Все',
       sortedProducts: [],
       minPrice: 0,
-      maxPrice: 1000
+      maxPrice: 10000
     }
   },
   computed: {
@@ -79,6 +79,7 @@ export default {
       'CART',
       'IS_MOBILE',
       'IS_DESKTOP',
+      'SEARCH_VALUE'
     ]),
     filteredProducts() {
       if (this.sortedProducts.length) {
@@ -116,6 +117,22 @@ export default {
           return e.category === category.name
         })
       }
+    },
+    sortProductsBySearchValue(value) {
+      this.sortedProducts = [...this.PRODUCTS];
+      if (value) {
+        this.sortedProducts = this.sortedProducts.filter(function(item) {
+          return item.name.toLowerCase().includes(value.toLowerCase())
+        })
+      } else {
+        this.sortedProducts = this.PRODUCTS;
+      }
+
+    }
+  },
+  watch: {
+    SEARCH_VALUE() {
+      this.sortProductsBySearchValue(this.SEARCH_VALUE)
     }
   },
   mounted() {
@@ -124,6 +141,7 @@ export default {
           if (response.data) {
             console.log('Data arrived!');
             this.sortByCategories()
+            this.sortProductsBySearchValue(this.SEARCH_VALUE)
           }
         })
   }
@@ -143,7 +161,7 @@ export default {
 
   &__link-to-cart {
     position: absolute;
-    top: 15px;
+    top: 100px;
     right: 15px;
     padding: $padding*2;
     border: 1px solid #aeaeae;
