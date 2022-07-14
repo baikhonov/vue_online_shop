@@ -1,4 +1,5 @@
 # vue_online_shop
+Created on Vue 2
 
 ## Project setup
 ```
